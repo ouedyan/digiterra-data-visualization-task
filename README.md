@@ -2,6 +2,8 @@
 
 This project is built with React.js (Bootstrapped with Create React App).
 
+Running demo: http://digiterra-data-visualization-task.surge.sh/
+
 ## Features
 
 - [x] All main metrics got from broker and represented in real-time
