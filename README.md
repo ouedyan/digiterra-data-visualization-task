@@ -2,6 +2,25 @@
 
 This project is built with React.js (Bootstrapped with Create React App).
 
+## Features
+
+- [x] All main metrics got from broker and represented in real-time
+- ### Extra Features
+  - [x] Dark theme support (from system theme, saved locally if customized)
+  - [x] User online status and broker connection status
+  - [x] Theme responsive toast for alerts
+  - [ ] It would be really great to add drag-and-drop feature to board components (Couldn't implement it for now with the given deadline.)
+
+## Main Used Tech Stack
+
+- [TypeScript](https://www.typescriptlang.org/)
+- [React Js](https://reactjs.org/docs) as Js Framework
+- [Tailwind Css](https://tailwindcss.com/) for styling
+- [Prettier](https://prettier.io/) - for code formatting.
+- [Charts Js](https://react-chartjs-2.js.org/) - as Js charting library.
+- [MQTT.js](https://www.npmjs.com/package/mqtt) - as MQTT client library.
+- [React Hot Toast](https://react-hot-toast.com/) - as notification library (error alerts).
+
 ## Project directory structure
 
 Main folder structure
@@ -48,10 +67,3 @@ Eject the project
 
 `npm run eject`
 
-
-## Main Used Tech Stack
-
-- [TypeScript](https://www.typescriptlang.org/)
-- [React Js](https://reactjs.org/docs) as Js Framework
-- [Tailwind Css](https://tailwindcss.com/) for styling
-- [Prettier](https://prettier.io/) - for code formatting.
