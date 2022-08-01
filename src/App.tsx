@@ -21,21 +21,29 @@ function App() {
   const online = useOnline();
 
   useEffect(() => {
-    const client = subscribeToMQTTMetrics();
-    closeLastConnection();
-    clientRef.current = client;
-    client.subscribe({ [subscriptionTopic]: { qos: subscriptionQosLevel } });
-    client.on("error", (error) => {
-      console.log(error);
-      toast.error("An error occurred");
-    });
-    client.on("message", (topic, payload) => {
-      addData(JSON.parse(payload.toString()));
-    });
-
-    return () => {
+    try {
+      const client = subscribeToMQTTMetrics();
       closeLastConnection();
-    };
+      clientRef.current = client;
+      client.subscribe({ [subscriptionTopic]: { qos: subscriptionQosLevel } });
+      client.on("error", (error) => {
+        console.log(error);
+        toast.error("An error occurred");
+      });
+      client.on("offline", () => {
+        toast.error("Failed to connect to the broker");
+      });
+      client.on("message", (topic, payload) => {
+        addData(JSON.parse(payload.toString()));
+      });
+
+      return () => {
+        closeLastConnection();
+      };
+    } catch (e) {
+      toast.error("An error occurred");
+      console.log(e);
+    }
   }, []);
 
   function addData(data: MqttMetricsResponse) {
