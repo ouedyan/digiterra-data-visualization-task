@@ -18,7 +18,7 @@ const PieChart = ({
     backgroundColor: CSSProperties["color"][];
   }[];
 }) => {
-  const config: ChartProps["options"] = {
+  const config: ChartProps<"pie">["options"] = {
     responsive: true,
     plugins: {
       legend: {
